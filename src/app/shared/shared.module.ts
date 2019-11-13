@@ -42,13 +42,62 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
+import { LoadComponentDynamicDirective } from './directives/load-component-dynamic.directive';
+import { DataTableComponent } from './components/UI/data-table/data-table.component';
+import { TextComponent } from './components/UI/text/text.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CheckboxComponent , LoadComponentDynamicDirective, DataTableComponent, TextComponent],
   imports: [
+    CommonModule,
+    A11yModule,
+    CdkStepperModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    PortalModule,
+    ScrollingModule,
+    ReactiveFormsModule,
   ],
+  entryComponents: [CheckboxComponent, TextComponent],
   exports: [
     CommonModule,
     A11yModule,
@@ -93,7 +142,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    // CheckboxComponent,
+    LoadComponentDynamicDirective,
+    DataTableComponent
+  ],
 })
 export class SharedModule { }

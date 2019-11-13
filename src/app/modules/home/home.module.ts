@@ -4,6 +4,7 @@ import {HomeRoutingModule} from './home-routing.module';
 
 import { HomeControllerComponent } from './pages/home-controller/home-controller.component';
 import { BotsListComponent } from './pages/bots-list/bots-list.component';
+import { CheckboxComponent } from 'src/app/shared/components/UI/checkbox/checkbox.component';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { BotsListComponent } from './pages/bots-list/bots-list.component';
   imports: [
     SharedModule,
     HomeRoutingModule
-  ]
+  ],
+  exports: [SharedModule],
 })
 export class HomeModule { }
