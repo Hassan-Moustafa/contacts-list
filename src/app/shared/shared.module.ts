@@ -45,12 +45,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
 import { LoadComponentDynamicDirective } from './directives/load-component-dynamic.directive';
 import { DataTableComponent } from './components/UI/data-table/data-table.component';
-import { TextComponent } from './components/UI/text/text.component';
+import { SearchBoxComponent } from './components/UI/search-box/search-box.component';
 
 
 
 @NgModule({
-  declarations: [CheckboxComponent , LoadComponentDynamicDirective, DataTableComponent, TextComponent],
+  declarations: [CheckboxComponent , LoadComponentDynamicDirective, DataTableComponent, SearchBoxComponent],
   imports: [
     CommonModule,
     A11yModule,
@@ -97,7 +97,7 @@ import { TextComponent } from './components/UI/text/text.component';
     ScrollingModule,
     ReactiveFormsModule,
   ],
-  entryComponents: [CheckboxComponent, TextComponent],
+  entryComponents: [CheckboxComponent],
   exports: [
     CommonModule,
     A11yModule,
@@ -145,7 +145,8 @@ import { TextComponent } from './components/UI/text/text.component';
     ReactiveFormsModule,
     // CheckboxComponent,
     LoadComponentDynamicDirective,
-    DataTableComponent
+    DataTableComponent,
+    SearchBoxComponent
   ],
 })
 export class SharedModule { }
