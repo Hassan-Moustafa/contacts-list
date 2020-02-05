@@ -20,7 +20,14 @@
             <input type="text" placeholder="Last name" [formControlName]="getFields().lastName" />
             <p class="error-hint" *ngIf="hasError([getFields().lastName])">{{getValidationMessage([getFields().lastName], 'Last name')}}</p>
         </div>
-        <div class="form-group col-12">
+        <div class="form-group col-3">
+            <select [formControlName]="getFields().countryCode">
+                <option *ngFor="let country of countriesCodes" [value]="country.code">
+                    {{country.code}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-9">
             <input type="text" placeholder="Phone number" [formControlName]="getFields().phoneNumber" />
             <p class="error-hint" *ngIf="hasError([getFields().phoneNumber])">{{getValidationMessage([getFields().phoneNumber], 'Phone number')}}</p>
         </div>

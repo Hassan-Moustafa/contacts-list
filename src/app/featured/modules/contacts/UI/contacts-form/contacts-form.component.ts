@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseFormModel } from '../../../../../shared/baseClasses/base-form.model';
 import { ContactFields, FormParts } from '../../../../../shared/enums/enums';
-import { Validators } from '@angular/forms';
+import { Validators, ValidatorFn, FormGroup, ValidationErrors } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ContactService } from '../../services/contact.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,6 +15,19 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
 
   contactImage: string;
   imageUrl: SafeUrl;
+  countriesCodes = [
+    {
+      country: 'eg',
+      code: '+20',
+      regex: '^01[0-2]{1}[0-9]{8}$'
+    },
+    {
+      country: 'us',
+      code: '+1',
+      regex: '^[\\(]{0,1}([0-9]){3}[\\)]{0,1}[ ]?([^0-1]){1}([0-9]){2}[ ]?[-]?[ ]?([0-9]){4}[ ]*((x){0,1}([0-9]){1,5}){0,1}$'
+    },
+
+  ]
   constructor(
       private domSanitizer: DomSanitizer, 
       private contactService: ContactService,
@@ -43,6 +56,14 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
           ]
         },
         {
+          key: ContactFields.countryCode,
+          defaultValue: '+1',
+          type: FormParts.FormControl,
+          validation: [
+            Validators.required
+          ]
+        },
+        {
           key: ContactFields.phoneNumber,
           defaultValue: '',
           type: FormParts.FormControl,
@@ -65,7 +86,8 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
           type: FormParts.FormControl,
           validation: []
         },
-      ]
+      ],
+      validators: this.validatePhoneNumber
     }
   }
 
@@ -107,6 +129,22 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
     });
 
     this.router.navigate(['../contacts-list'], {relativeTo: this.route})
+  }
+
+  validatePhoneNumber: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
+
+    const phoneNumber = form.get('phoneNumber').value;
+    const countryCode = form.get('countryCode').value;
+    console.log(this.isMatchRegex(countryCode, phoneNumber));
+    return this.isMatchRegex(countryCode, phoneNumber) ? null : {invalidPhoneNumber: true, message: 'Phone number is not valid with the selected code', field: 'phoneNumber'};
+  };
+
+  isMatchRegex(countryCode: string, phoneNumber: string): boolean {
+    const countryData = this.countriesCodes.find((country) => {
+      return country.code === countryCode;
+    })
+    const regex = RegExp(countryData.regex);
+    return regex.test(phoneNumber);
   }
 
 }

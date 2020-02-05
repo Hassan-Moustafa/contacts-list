@@ -16,4 +16,7 @@
   <div class="contact-list col-12">
     <app-contact-list [contactsList]="contactsList"></app-contact-list>
   </div>
+  <div class="col-12 no-contacts-header" *ngIf="contactsList.length === 0">
+    No Contacts Found
+  </div>
 </div>
