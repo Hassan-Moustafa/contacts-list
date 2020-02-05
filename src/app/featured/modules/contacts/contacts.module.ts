@@ -6,11 +6,12 @@ import { ContactsControllerComponent } from './UI/contacts-controller/contacts-c
 import { ContactListComponent } from './UI/contact-list/contact-list.component';
 import { ContactListItemComponent } from './UI/contact-list-item/contact-list-item.component';
 import { ContactService } from './services/contact.service';
+import { ContactListControllerComponent } from './UI/contact-list-controller/contact-list-controller.component';
 
 
 
 @NgModule({
-  declarations: [ContactsControllerComponent, ContactListComponent, ContactListItemComponent],
+  declarations: [ContactsControllerComponent, ContactListComponent, ContactListItemComponent, ContactListControllerComponent],
   imports: [
     SharedModule,
     HomeRoutingModule

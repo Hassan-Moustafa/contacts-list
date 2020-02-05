@@ -48,23 +48,23 @@ export class ContactService {
       image: 'dasdadadsads'
     },
     {
-      firstName: 'ahmed',
+      firstName: 'ahmed sayed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
       image: 'dasdadadsads'
     },
     {
-      firstName: 'ahmed',
+      firstName: 'ahmed bnjkhb',
       lastName: 'mohamed',
       email: 'h@h.com',
-      mobileNumber: '012354645',
+      mobileNumber: '789798',
       image: 'dasdadadsads'
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
-      email: 'h@h.com',
+      email: 'sayed@sayed.com',
       mobileNumber: '012354645',
       image: 'dasdadadsads'
     },
@@ -110,22 +110,28 @@ export class ContactService {
   /**
    * searchContacts
    */
-  public searchContacts(searchValue: string, fieldsToSearchWith: string[]) {
-    if (searchValue && searchValue.trim() !== '') {
+  public searchContacts(searchValue: string, fieldsToSearchWith?: string[]) {
+    if ((searchValue && searchValue.trim() === '') || !searchValue) {
       return this.getAllContacts();
     }
 
-    const keysList = fieldsToSearchWith.length === 0 ? Object.keys(ContactModel) : fieldsToSearchWith;
+    let keysList = [];
+    if (!fieldsToSearchWith || (fieldsToSearchWith && fieldsToSearchWith.length === 0)) {
+      keysList = Object.keys(new ContactModel());
+    } else {
+      keysList = fieldsToSearchWith;
+    }
+
+    const modifiedSearchValue = searchValue.trim().toLowerCase();
 
     return this.contactsList.filter((contact: ContactModel) => {
       for (const key of keysList) {
           const value = contact[key].toString().toLowerCase();
-          if (value.includes(searchValue.toLowerCase())) {
+          if (value.includes(modifiedSearchValue)) {
             return true;
-          } else {
-            return false;
           }
       }
+      return false;
     });
   }
 }

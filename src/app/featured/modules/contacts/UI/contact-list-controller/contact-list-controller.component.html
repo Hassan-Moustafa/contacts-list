@@ -1,0 +1,19 @@
+<div class="row col-12 px-0 mx-0 contacts-list-container">
+  <div class="col-12 px-0">
+    <app-search-box placeholder="Search Contacts" (onChange)="filterContacts($event)"></app-search-box>
+  </div>
+  <div class="col-12 row px-0 mx-0 add-btn-container justify-content-between">
+    <div class="col-auto add-new-contact-btn">
+      Add New Contact
+    </div>
+    <div class="col-1">
+      <div class="add-icon">
+        <app-svg-icon iconName="plus"></app-svg-icon>
+      </div>
+    </div>
+
+  </div>
+  <div class="contact-list col-12">
+    <app-contact-list [contactsList]="contactsList"></app-contact-list>
+  </div>
+</div>
