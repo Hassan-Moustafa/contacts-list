@@ -43,21 +43,21 @@ export class ContactService {
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
-      email: 'h@h.com',
+      email: 'ahmed.mohamed@abc.com',
       mobileNumber: '012354645',
       image: 'dasdadadsads'
     },
     {
-      firstName: 'ahmed sayed',
+      firstName: 'baher',
       lastName: 'mohamed',
-      email: 'h@h.com',
+      email: 'baher@hdsa.com',
       mobileNumber: '012354645',
       image: 'dasdadadsads'
     },
     {
-      firstName: 'ahmed bnjkhb',
+      firstName: 'manal atef',
       lastName: 'mohamed',
-      email: 'h@h.com',
+      email: 'manal.atef@qwe.com',
       mobileNumber: '789798',
       image: 'dasdadadsads'
     },
@@ -65,6 +65,34 @@ export class ContactService {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'sayed@sayed.com',
+      mobileNumber: '012354645',
+      image: 'dasdadadsads'
+    },
+    {
+      firstName: 'ahmed',
+      lastName: 'mohamed',
+      email: 'h@h.com',
+      mobileNumber: '012354645',
+      image: 'dasdadadsads'
+    },
+    {
+      firstName: 'ahmed',
+      lastName: 'mohamed',
+      email: 'h@h.com',
+      mobileNumber: '012354645',
+      image: 'dasdadadsads'
+    },
+    {
+      firstName: 'ahmed',
+      lastName: 'mohamed',
+      email: 'h@h.com',
+      mobileNumber: '012354645',
+      image: 'dasdadadsads'
+    },
+    {
+      firstName: 'ahmed',
+      lastName: 'mohamed',
+      email: 'h@h.com',
       mobileNumber: '012354645',
       image: 'dasdadadsads'
     },
@@ -97,7 +125,7 @@ export class ContactService {
    * getAllContacts
    */
   public getAllContacts() {
-    return [...this.contactsList];
+    return this.sortListByFullName(this.contactsList);
   }
 
   /**
@@ -124,7 +152,7 @@ export class ContactService {
 
     const modifiedSearchValue = searchValue.trim().toLowerCase();
 
-    return this.contactsList.filter((contact: ContactModel) => {
+    const filteredList =  this.contactsList.filter((contact: ContactModel) => {
       for (const key of keysList) {
           const value = contact[key].toString().toLowerCase();
           if (value.includes(modifiedSearchValue)) {
@@ -133,5 +161,22 @@ export class ContactService {
       }
       return false;
     });
+    return this.sortListByFullName(filteredList);
+  }
+
+  /**
+   * sortList
+   */
+  public sortListByFullName(contacts: ContactModel[]) {
+    return contacts.sort((contact1: ContactModel, contact2: ContactModel) => {
+      const firstFullName = `${contact1.firstName} ${contact1.lastName}`;
+      const secondFullName = `${contact2.firstName} ${contact2.lastName}`;
+      if (firstFullName > secondFullName) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
   }
 }
