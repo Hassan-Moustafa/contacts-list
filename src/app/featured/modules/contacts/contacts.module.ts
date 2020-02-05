@@ -5,6 +5,7 @@ import {HomeRoutingModule} from './contacts-routing.module';
 import { ContactsControllerComponent } from './UI/contacts-controller/contacts-controller.component';
 import { ContactListComponent } from './UI/contact-list/contact-list.component';
 import { ContactListItemComponent } from './UI/contact-list-item/contact-list-item.component';
+import { ContactService } from './services/contact.service';
 
 
 
@@ -15,5 +16,6 @@ import { ContactListItemComponent } from './UI/contact-list-item/contact-list-it
     HomeRoutingModule
   ],
   exports: [SharedModule],
+  providers: [ContactService]
 })
 export class ContactsModule { }

@@ -10,7 +10,8 @@
     background-image: url('../../../../../assets/svg-icons/search.svg');
     background-size: 20px;
     background-repeat: no-repeat;
-    background-position: 40% center;
+    background-position: 1% center;
+    text-align: center;
     &::placeholder{
       text-align: center;
     }
