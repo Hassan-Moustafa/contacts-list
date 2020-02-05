@@ -1,0 +1,9 @@
+.letters-nav-container{
+    position: absolute;
+    z-index: 1;
+    top: 19px;
+    right: -7px;
+    .letter{
+        cursor: pointer;
+    }
+}

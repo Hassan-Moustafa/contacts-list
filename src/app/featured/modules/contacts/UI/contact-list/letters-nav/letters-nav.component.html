@@ -1,0 +1,5 @@
+<div class="col-auto letters-nav-container px-0">
+    <div class="col-12 px-0 letter" *ngFor="let char of getLetters()">
+        <a pageScroll [href]="'#sub-header-' + char">{{char}}</a>
+    </div>
+</div>

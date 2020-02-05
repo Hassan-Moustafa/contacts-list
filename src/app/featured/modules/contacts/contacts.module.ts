@@ -9,9 +9,10 @@ import { ContactService } from './services/contact.service';
 import { ContactListControllerComponent } from './UI/contact-list-controller/contact-list-controller.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { LettersNavComponent } from './UI/contact-list/letters-nav/letters-nav.component';
 
 @NgModule({
-  declarations: [ContactsControllerComponent, ContactListComponent, ContactListItemComponent, ContactListControllerComponent],
+  declarations: [ContactsControllerComponent, ContactListComponent, ContactListItemComponent, ContactListControllerComponent, LettersNavComponent],
   imports: [
     SharedModule,
     HomeRoutingModule,

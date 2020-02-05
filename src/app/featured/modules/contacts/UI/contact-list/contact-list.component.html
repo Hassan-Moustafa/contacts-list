@@ -1,14 +1,15 @@
 <div class="row col-12 px-0 mx-0 contacts-list-container">
   <div class="col-12">
-    <a pageScroll href="#sub-header-A">A</a>
-    <a pageScroll href="#sub-header-B">B</a>
+    <!-- <a pageScroll href="#sub-header-A">A</a> -->
+    <!-- <a pageScroll href="#sub-header-B">B</a>
     <a pageScroll href="#sub-header-M">M</a>
     <a pageScroll href="#sub-header-A">A</a>
     <a pageScroll href="#sub-header-A">A</a>
     <a href="#sub-header-A">A</a>
     <a href="#sub-header-A">A</a>
     <a href="#sub-header-A">A</a>
-    <a href="#sub-header-A">A</a>
+    <a href="#sub-header-A">A</a> -->
+    <app-letters-nav></app-letters-nav>
   </div>
   <div class="col-12" *ngFor="let contact of contactsList; let i = index;">
     <app-contact-list-item [contactData]="contact" [subListHeader] = "getSubListHeader(i, contact)"></app-contact-list-item>
