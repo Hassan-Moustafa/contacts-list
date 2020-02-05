@@ -46,11 +46,12 @@ import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
 import { LoadComponentDynamicDirective } from './directives/load-component-dynamic.directive';
 import { DataTableComponent } from './components/UI/data-table/data-table.component';
 import { SearchBoxComponent } from './components/UI/search-box/search-box.component';
+import { SvgIconComponent } from './components/ui/svg-icon/svg-icon.component';
 
 
 
 @NgModule({
-  declarations: [CheckboxComponent , LoadComponentDynamicDirective, DataTableComponent, SearchBoxComponent],
+  declarations: [CheckboxComponent , LoadComponentDynamicDirective, DataTableComponent, SearchBoxComponent, SvgIconComponent],
   imports: [
     CommonModule,
     A11yModule,
@@ -146,7 +147,8 @@ import { SearchBoxComponent } from './components/UI/search-box/search-box.compon
     // CheckboxComponent,
     LoadComponentDynamicDirective,
     DataTableComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    SvgIconComponent
   ],
 })
 export class SharedModule { }
