@@ -1,5 +1,5 @@
 <div class="contact-list-item-container row col-12 px-0 mx-0 my-2">
-  <div class="col-12 sub-list-header" *ngIf="subListHeader">{{subListHeader}}</div>
+  <div class="col-12 sub-list-header" *ngIf="subListHeader" [id]="'sub-header-' + subListHeader">{{subListHeader}}</div>
   <div class="col-auto contact-image-container">
     <img src="../../../../../../assets/images/contact.png" alt="" class="rounded-circle contact-image">
   </div>
