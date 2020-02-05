@@ -6,7 +6,6 @@ import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CheckboxComponent } from './shared/components/UI/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [

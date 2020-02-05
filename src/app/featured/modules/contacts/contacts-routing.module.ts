@@ -11,7 +11,7 @@ const homeRoutes: Routes = [
   {
     path: '' , component: ContactsControllerComponent, children: [
       {
-        path: 'contacts-list', component: ContactListControllerComponent
+        path: '', component: ContactListControllerComponent
       },
       {
         path: 'new-contact', component: ContactsFormComponent

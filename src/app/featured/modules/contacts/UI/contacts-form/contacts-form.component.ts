@@ -128,14 +128,13 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
       image: this.contactImage
     });
 
-    this.router.navigate(['../contacts-list'], {relativeTo: this.route})
+    this.router.navigate(['../'], {relativeTo: this.route})
   }
 
   validatePhoneNumber: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
 
     const phoneNumber = form.get('phoneNumber').value;
     const countryCode = form.get('countryCode').value;
-    console.log(this.isMatchRegex(countryCode, phoneNumber));
     return this.isMatchRegex(countryCode, phoneNumber) ? null : {invalidPhoneNumber: true, message: 'Phone number is not valid with the selected code', field: 'phoneNumber'};
   };
 
