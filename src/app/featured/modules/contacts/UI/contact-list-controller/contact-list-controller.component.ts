@@ -20,6 +20,5 @@ export class ContactListControllerComponent implements OnInit {
   filterContacts(searchValue: string) {
     this.searchValue = searchValue;
     this.contactsList = this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
-    console.log(this.contactsList);
   }
 }
