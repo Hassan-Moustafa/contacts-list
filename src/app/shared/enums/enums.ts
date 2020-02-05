@@ -4,21 +4,10 @@ export enum FormParts {
   FormArray = '3'
 }
 
-export enum LoginFields {
- email = 'email',
- passowrd = 'password'
+export enum ContactFields {
+  firstName = 'firstName',
+  lastName = 'lastName',
+  phoneNumber = 'phoneNumber',
+  emailAddress = 'emailAddress',
+  image = 'image'
 }
-
-export enum ForgotPasswordFields {
-  email = 'email'
-}
-
-export enum ResetPasswordFields {
-  newPassword = 'newPassword',
-  confirmPassword = 'confirmPassword'
-}
-
-export enum SearchField {
-  search = 'search'
-}
-

@@ -41,7 +41,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
 import { LoadComponentDynamicDirective } from './directives/load-component-dynamic.directive';
 import { DataTableComponent } from './components/UI/data-table/data-table.component';
@@ -144,6 +144,7 @@ import { SvgIconComponent } from './components/ui/svg-icon/svg-icon.component';
     PortalModule,
     ScrollingModule,
     ReactiveFormsModule,
+    FormsModule,
     // CheckboxComponent,
     LoadComponentDynamicDirective,
     DataTableComponent,
