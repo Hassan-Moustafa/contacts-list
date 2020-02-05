@@ -12,6 +12,9 @@ import { PageScrollService } from 'ngx-page-scroll-core';
 export class ContactListComponent implements OnInit {
 
   @Input() contactsList: ContactModel[];
+  @Input() showLettersNav: boolean = true;
+  @Input() showSubHeader: boolean = true;
+
 
   constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) { }
 

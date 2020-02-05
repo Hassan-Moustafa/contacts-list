@@ -13,6 +13,12 @@
     </div>
 
   </div>
+  <div class="contact-list col-12 px-0">
+      <div class="col-auto latest-contacts-header">
+          Latest contacts
+      </div>
+      <app-contact-list [showSubHeader]="false" [showLettersNav] = "false" [contactsList]="recentContactsList"></app-contact-list>
+  </div>
   <div class="contact-list col-12">
     <app-contact-list [contactsList]="contactsList"></app-contact-list>
   </div>

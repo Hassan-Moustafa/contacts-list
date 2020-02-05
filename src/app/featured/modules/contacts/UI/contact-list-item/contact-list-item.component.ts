@@ -10,6 +10,7 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contactData: ContactModel;
   @Input() subListHeader: string;
+  @Input() showSubHeader: boolean = true;
 
   constructor() { }
 

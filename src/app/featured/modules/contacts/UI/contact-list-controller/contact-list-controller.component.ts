@@ -10,11 +10,13 @@ import { ContactModel } from 'src/app/shared/models/contact.model';
 export class ContactListControllerComponent implements OnInit {
 
   contactsList: ContactModel[];
+  recentContactsList: ContactModel[];
   searchValue: string;
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
     this.contactsList = this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
+    this.recentContactsList = this.contactService.getAllRecentContacts();
   }
 
   filterContacts(searchValue: string) {

@@ -4,37 +4,16 @@ export class ContactService {
 
   private recentContactList: ContactModel[] = [
     {
-      firstName: 'ahmed',
-      lastName: 'mohamed',
-      email: 'h@h.com',
+      firstName: 'Ahmed',
+      lastName: 'Mohamed',
+      email: 'ahmed.mohamed@gmail.com',
       mobileNumber: '012354645',
       image: ''
     },
     {
-      firstName: 'ahmed',
-      lastName: 'mohamed',
-      email: 'h@h.com',
-      mobileNumber: '012354645',
-      image: ''
-    },
-    {
-      firstName: 'ahmed',
-      lastName: 'mohamed',
-      email: 'h@h.com',
-      mobileNumber: '012354645',
-      image: ''
-    },
-    {
-      firstName: 'ahmed',
-      lastName: 'mohamed',
-      email: 'h@h.com',
-      mobileNumber: '012354645',
-      image: ''
-    },
-    {
-      firstName: 'ahmed',
-      lastName: 'mohamed',
-      email: 'h@h.com',
+      firstName: 'Sara',
+      lastName: 'Kamal',
+      email: 'sara40@yahoo.com',
       mobileNumber: '012354645',
       image: ''
     },
