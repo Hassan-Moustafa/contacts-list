@@ -8,35 +8,35 @@ export class ContactService {
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
   ];
   private contactsList: ContactModel[] = [
@@ -45,77 +45,77 @@ export class ContactService {
       lastName: 'mohamed',
       email: 'ahmed.mohamed@abc.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'baher',
       lastName: 'mohamed',
       email: 'baher@hdsa.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'manal atef',
       lastName: 'mohamed',
       email: 'manal.atef@qwe.com',
       mobileNumber: '789798',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'sahmed',
       lastName: 'sayed',
       email: 'sayed@sayed.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
     {
       firstName: 'ahmed',
       lastName: 'mohamed',
       email: 'h@h.com',
       mobileNumber: '012354645',
-      image: 'dasdadadsads'
+      image: ''
     },
   ];
 
@@ -169,8 +169,8 @@ export class ContactService {
    */
   public sortListByFullName(contacts: ContactModel[]) {
     return contacts.sort((contact1: ContactModel, contact2: ContactModel) => {
-      const firstFullName = `${contact1.firstName} ${contact1.lastName}`;
-      const secondFullName = `${contact2.firstName} ${contact2.lastName}`;
+      const firstFullName = this.getFullName(contact1);
+      const secondFullName = this.getFullName(contact2);
       if (firstFullName > secondFullName) {
         return 1;
       } else {
@@ -179,4 +179,25 @@ export class ContactService {
     });
 
   }
+
+  /**
+   * addNewContact
+   */
+  public addNewContact(newContact: ContactModel){
+    let index = 0;
+    for(let i = 0; i < this.contactsList.length ; i++) {
+      const fullName = this.getFullName(this.contactsList[i]);
+      const newContactFullName = this.getFullName(newContact);
+      if(newContactFullName > fullName) continue;
+      else index = i;
+    }
+    this.contactsList.splice(index, 0, newContact);
+  }
+
+  /**
+   * getFullName
+   */
+  public getFullName(contact: ContactModel) {
+    return `${contact.firstName} ${contact.lastName}`;
+  } 
 }

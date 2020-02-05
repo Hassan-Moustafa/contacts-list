@@ -3,6 +3,8 @@ import { BaseFormModel } from '../../../../../shared/baseClasses/base-form.model
 import { ContactFields, FormParts } from '../../../../../shared/enums/enums';
 import { Validators } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { ContactService } from '../../services/contact.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contacts-form',
@@ -13,7 +15,11 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
 
   contactImage: string;
   imageUrl: SafeUrl;
-  constructor(private domSanitizer: DomSanitizer) { 
+  constructor(
+      private domSanitizer: DomSanitizer, 
+      private contactService: ContactService,
+      private router: Router,
+      private route: ActivatedRoute) { 
     super();
   }
 
@@ -95,6 +101,12 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
   }
 
   onSubmit(){
+    this.contactService.addNewContact({
+      ... this.form.value,
+      image: this.contactImage
+    });
+
+    this.router.navigate(['../contacts-list'], {relativeTo: this.route})
   }
 
 }
