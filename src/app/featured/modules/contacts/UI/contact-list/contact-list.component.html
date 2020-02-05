@@ -1,5 +1,5 @@
 <div class="row col-12 px-0 mx-0 contacts-list-container">
-  <div class="col-12" *ngFor="let contact of contactsList">
-    <app-contact-list-item [contactData]="contact"></app-contact-list-item>
+  <div class="col-12" *ngFor="let contact of contactsList; let i = index;">
+    <app-contact-list-item [contactData]="contact" [subListHeader] = "getSubListHeader(i, contact)"></app-contact-list-item>
   </div>
 </div>

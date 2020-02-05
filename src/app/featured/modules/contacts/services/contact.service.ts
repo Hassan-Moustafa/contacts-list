@@ -62,8 +62,8 @@ export class ContactService {
       image: 'dasdadadsads'
     },
     {
-      firstName: 'ahmed',
-      lastName: 'mohamed',
+      firstName: 'sahmed',
+      lastName: 'sayed',
       email: 'sayed@sayed.com',
       mobileNumber: '012354645',
       image: 'dasdadadsads'

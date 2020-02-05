@@ -9,6 +9,7 @@ import { ContactModel } from 'src/app/shared/models/contact.model';
 export class ContactListItemComponent implements OnInit {
 
   @Input() contactData: ContactModel;
+  @Input() subListHeader: string;
 
   constructor() { }
 

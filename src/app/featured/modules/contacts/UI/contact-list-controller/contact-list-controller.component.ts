@@ -14,12 +14,12 @@ export class ContactListControllerComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.contactsList = this.contactService.searchContacts(this.searchValue);
+    this.contactsList = this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
   }
 
   filterContacts(searchValue: string) {
     this.searchValue = searchValue;
-    this.contactsList = this.contactService.searchContacts(this.searchValue);
+    this.contactsList = this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
     console.log(this.contactsList);
   }
 }
