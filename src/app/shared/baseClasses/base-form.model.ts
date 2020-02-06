@@ -68,6 +68,8 @@ export abstract class BaseFormModel<T> {
         return `${fieldAsText} must be a valid number`;
     } else if (this.form.get(field).hasError('minlength')) {
       return `${fieldAsText} length must be at least ${this.form.get(field).errors.minlength.requiredLength}`;
+    } else if (this.form.get(field).hasError('maxlength')) {
+      return `${fieldAsText} length must be at most ${this.form.get(field).errors.maxlength.requiredLength}`;
     } else if (this.form.get(field).hasError('match')) {
       return `${fieldAsText} ${this.form.get(field).errors['match'].value}`;
     } else if (this.form.errors && this.form.errors.field === field) {

@@ -18,7 +18,29 @@ export class ContactService {
       image: ''
     },
   ];
-  private contactsList: ContactModel[] = [];
+  private contactsList: ContactModel[] = [
+    {
+      firstName: 'Ahmed',
+      lastName: 'Mohamed',
+      email: 'ahmed.mohamed@gmail.com',
+      mobileNumber: '012354645',
+      image: ''
+    },
+    {
+      firstName: 'Radwa',
+      lastName: 'Mohamed',
+      email: 'radwa.mohamed100@gmail.com',
+      mobileNumber: '012354645',
+      image: ''
+    },
+    {
+      firstName: 'Sara',
+      lastName: 'Kamal',
+      email: 'Sara40@yahoo.com',
+      mobileNumber: '012354645',
+      image: ''
+    },
+  ];
 
   constructor() { }
 
@@ -99,6 +121,6 @@ export class ContactService {
    * getFullName
    */
   public getFullName(contact: ContactModel) {
-    return `${contact.firstName} ${contact.lastName}`;
+    return `${contact.firstName} ${contact.lastName}`.toLowerCase();
   } 
 }

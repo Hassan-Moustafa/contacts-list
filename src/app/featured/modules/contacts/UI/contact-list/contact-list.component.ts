@@ -28,7 +28,7 @@ export class ContactListComponent implements OnInit {
   getSubListHeader(index: number, contact: ContactModel) {
     if (index === 0) {
       return contact.firstName[0].toUpperCase();
-    } else if (this.contactsList[index].firstName[0] !== this.contactsList[index - 1].firstName[0]) {
+    } else if (this.contactsList[index].firstName[0].toLowerCase() !== this.contactsList[index - 1].firstName[0].toLowerCase()) {
       return contact.firstName[0].toUpperCase();
     }
   }

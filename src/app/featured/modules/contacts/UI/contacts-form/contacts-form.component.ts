@@ -44,7 +44,8 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
           defaultValue: '',
           type: FormParts.FormControl,
           validation: [
-            Validators.required
+            Validators.required,
+            Validators.maxLength(20)
           ]
         },
         {
@@ -52,7 +53,8 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
           defaultValue: '',
           type: FormParts.FormControl,
           validation: [
-            Validators.required
+            Validators.required,
+            Validators.maxLength(15)
           ]
         },
         {
