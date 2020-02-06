@@ -17,4 +17,8 @@ export class ContactListItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  getImage() {
+    return this.contactData.image ? this.contactData.image :  '../../../../../../assets/images/contact.png'
+  }
+
 }

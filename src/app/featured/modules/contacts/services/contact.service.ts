@@ -34,13 +34,20 @@ export class ContactService {
   }
 
   /**
+   * setRecentContactsList
+   */
+  public async setRecentContactsList() {
+    const recentContactsResponse = await this.contactAsyncService.getAllRecentContacts();
+    this.recentContactList = this.fixContactsObjects(recentContactsResponse.data);
+  }
+
+  /**
    * searchContacts
    */
   public async searchContacts(searchValue: string, fieldsToSearchWith?: string[]) {
-
+    this.setRecentContactsList();
     if (this.contactsList.length === 0) {
       await this.setContactsList();
-      // console.log(this.contactsList);
     }
 
     if ((searchValue && searchValue.trim() === '') || !searchValue) {

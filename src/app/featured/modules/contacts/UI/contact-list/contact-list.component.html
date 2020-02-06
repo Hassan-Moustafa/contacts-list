@@ -1,8 +1,11 @@
 <div class="row col-12 px-0 mx-0 contacts-list-container">
-  <div class="col-12" *ngIf="showLettersNav && contactsList && contactsList.length !== 0">
-    <app-letters-nav></app-letters-nav>
+  <div [ngClass]="{ 'col-12' : !(showLettersNav && contactsList && contactsList.length !== 0),
+                    'flex-grow-1' : (showLettersNav && contactsList && contactsList.length !== 0)}">
+    <div class="col-12 px-0" *ngFor="let contact of contactsList; let i = index;">
+      <app-contact-list-item [contactData]="contact" [showSubHeader]="showSubHeader" [subListHeader] = "getSubListHeader(i, contact)"></app-contact-list-item>
+    </div>
   </div>
-  <div class="col-12" *ngFor="let contact of contactsList; let i = index;">
-    <app-contact-list-item [contactData]="contact" [showSubHeader]="showSubHeader" [subListHeader] = "getSubListHeader(i, contact)"></app-contact-list-item>
+  <div class="col-auto px-0" *ngIf="showLettersNav && contactsList && contactsList.length !== 0">
+    <app-letters-nav></app-letters-nav>
   </div>
 </div>
