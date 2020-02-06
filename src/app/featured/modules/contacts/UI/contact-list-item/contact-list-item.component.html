@@ -4,7 +4,7 @@
     <img [src]="contactData.image ? contactData.image :  '../../../../../../assets/images/contact.png' " alt="" class="rounded-circle contact-image">
   </div>
   <div class="flex-grow-1 align-self-center">
-    <div class="col-12 contact-name">{{contactData.firstName}} {{contactData.lastName}}</div>
-    <div class="col-12 contact-detail">{{contactData.phoneNumber}}</div>
+    <div class="col-12 contact-name">{{contactData.contactDisplayName}}</div>
+    <div class="col-12 contact-detail">{{contactData.contactDetail}}</div>
   </div>
 </div>

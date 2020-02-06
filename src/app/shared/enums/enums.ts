@@ -7,7 +7,8 @@ export enum FormParts {
 export enum ContactFields {
   firstName = 'firstName',
   lastName = 'lastName',
-  phoneNumber = 'phoneNumber',
+  userName = 'userName',
+  mobileNumber = 'mobileNumber',
   countryCode = 'countryCode',
   emailAddress = 'emailAddress',
   image = 'image'

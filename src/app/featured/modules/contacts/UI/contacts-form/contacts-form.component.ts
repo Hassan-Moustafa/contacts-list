@@ -27,12 +27,12 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
       regex: '^[\\(]{0,1}([0-9]){3}[\\)]{0,1}[ ]?([^0-1]){1}([0-9]){2}[ ]?[-]?[ ]?([0-9]){4}[ ]*((x){0,1}([0-9]){1,5}){0,1}$'
     },
 
-  ]
+  ];
   constructor(
-      private domSanitizer: DomSanitizer, 
+      private domSanitizer: DomSanitizer,
       private contactService: ContactService,
       private router: Router,
-      private route: ActivatedRoute) { 
+      private route: ActivatedRoute) {
     super();
   }
 
@@ -66,7 +66,7 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
           ]
         },
         {
-          key: ContactFields.phoneNumber,
+          key: ContactFields.mobileNumber,
           defaultValue: '',
           type: FormParts.FormControl,
           validation: [
@@ -89,63 +89,55 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
           validation: []
         },
       ],
-      validators: this.validatePhoneNumber
-    }
+      validators: this.validateMobileNumber
+    };
   }
 
   getFields() {
     return ContactFields;
   }
 
-  readFile(event){
+  readFile(event) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.contactImage = 'data:image/png;base64,' + btoa(e.target.result);
+        this.contactImage = 'data:image/png;base64,' + btoa(e.target.result as string);
         this.imageUrl = this.domSanitizer.bypassSecurityTrustUrl(this.contactImage);
       };
       reader.readAsBinaryString(file);
     }
   }
 
-  blobToFile(blob: Blob, fileName: string): File {
-    let b: any = blob;
-    b.lastModified = Date.now();
-    b.lastModifiedDate = new Date();
-    b.name = fileName;
-    b.webkitRelativePath="";
-    return <File>blob
-}
-
   getImage() {
-    if(this.contactImage) {
+    if (this.contactImage) {
       return this.imageUrl;
-    } else return '../../../../../../assets/images/contact.png';
+    } else { return '../../../../../../assets/images/contact.png'; }
   }
 
-  onSubmit(){
+  onSubmit() {
     this.contactService.addNewContact({
       ... this.form.value,
       image: this.contactImage
     });
 
-    this.router.navigate(['../'], {relativeTo: this.route})
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
-  validatePhoneNumber: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
+  validateMobileNumber: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
 
-    const phoneNumber = form.get('phoneNumber').value;
+    const mobileNumber = form.get('mobileNumber').value;
     const countryCode = form.get('countryCode').value;
-    return this.isMatchRegex(countryCode, phoneNumber) ? null : {invalidPhoneNumber: true, message: 'Phone number is not valid with the selected code', field: 'phoneNumber'};
-  };
+    return this.isMatchRegex(countryCode, mobileNumber) ? null
+    : {invalidMobileNumber: true, message: 'Mobile number is not valid with the selected code', field: 'mobileNumber'};
+  }
 
-  isMatchRegex(countryCode: string, phoneNumber: string): boolean {
+  isMatchRegex(countryCode: string, mobileNumber: string): boolean {
     const countryData = this.countriesCodes.find((country) => {
       return country.code === countryCode;
-    })
+    });
     const regex = RegExp(countryData.regex);
-    return regex.test(phoneNumber);
+    return regex.test(mobileNumber);
   }
 
 }

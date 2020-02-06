@@ -9,18 +9,18 @@ import { ContactModel } from 'src/app/shared/models/contact.model';
 })
 export class ContactListControllerComponent implements OnInit {
 
-  contactsList: ContactModel[];
-  recentContactsList: ContactModel[];
+  contactsList: ContactModel[] = [];
+  recentContactsList: ContactModel[] = [];
   searchValue: string;
   constructor(private contactService: ContactService) { }
 
-  ngOnInit() {
-    this.contactsList = this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
+  async ngOnInit() {
+    this.contactsList = await this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
     this.recentContactsList = this.contactService.getAllRecentContacts();
   }
 
-  filterContacts(searchValue: string) {
+  async filterContacts(searchValue: string) {
     this.searchValue = searchValue;
-    this.contactsList = this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
+    this.contactsList = await this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
   }
 }
