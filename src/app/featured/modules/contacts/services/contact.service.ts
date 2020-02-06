@@ -7,14 +7,14 @@ export class ContactService {
       firstName: 'Ahmed',
       lastName: 'Mohamed',
       email: 'ahmed.mohamed@gmail.com',
-      mobileNumber: '012354645',
+      phoneNumber: '012354645',
       image: ''
     },
     {
       firstName: 'Sara',
       lastName: 'Kamal',
       email: 'sara40@yahoo.com',
-      mobileNumber: '012354645',
+      phoneNumber: '012354645',
       image: ''
     },
   ];
@@ -23,21 +23,21 @@ export class ContactService {
       firstName: 'Ahmed',
       lastName: 'Mohamed',
       email: 'ahmed.mohamed@gmail.com',
-      mobileNumber: '012354645',
+      phoneNumber: '012354645',
       image: ''
     },
     {
       firstName: 'Radwa',
       lastName: 'Mohamed',
       email: 'radwa.mohamed100@gmail.com',
-      mobileNumber: '012354645',
+      phoneNumber: '012354645',
       image: ''
     },
     {
       firstName: 'Sara',
       lastName: 'Kamal',
       email: 'Sara40@yahoo.com',
-      mobileNumber: '012354645',
+      phoneNumber: '012354645',
       image: ''
     },
   ];
