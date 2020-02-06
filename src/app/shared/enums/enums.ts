@@ -10,6 +10,6 @@ export enum ContactFields {
   userName = 'userName',
   mobileNumber = 'mobileNumber',
   countryCode = 'countryCode',
-  emailAddress = 'emailAddress',
+  email = 'email',
   image = 'image'
 }

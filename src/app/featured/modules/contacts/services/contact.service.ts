@@ -58,9 +58,11 @@ export class ContactService {
 
     const filteredList =  this.contactsList.filter((contact: ContactModel) => {
       for (const key of keysList) {
-          const value = contact[key].toString().toLowerCase();
-          if (value.includes(modifiedSearchValue)) {
-            return true;
+          if (contact[key]) {
+            const value = contact[key].toString().toLowerCase();
+            if (value.includes(modifiedSearchValue)) {
+              return true;
+            }
           }
       }
       return false;

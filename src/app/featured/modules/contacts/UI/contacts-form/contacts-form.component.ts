@@ -74,7 +74,7 @@ export class ContactsFormComponent extends BaseFormModel<ContactFields> implemen
           ]
         },
         {
-          key: ContactFields.emailAddress,
+          key: ContactFields.email,
           defaultValue: '',
           type: FormParts.FormControl,
           validation: [

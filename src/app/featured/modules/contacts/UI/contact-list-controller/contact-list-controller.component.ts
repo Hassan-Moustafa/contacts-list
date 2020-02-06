@@ -15,12 +15,12 @@ export class ContactListControllerComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   async ngOnInit() {
-    this.contactsList = await this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
+    this.contactsList = await this.contactService.searchContacts(this.searchValue);
     this.recentContactsList = this.contactService.getAllRecentContacts();
   }
 
   async filterContacts(searchValue: string) {
     this.searchValue = searchValue;
-    this.contactsList = await this.contactService.searchContacts(this.searchValue, ['firstName', 'lastName']);
+    this.contactsList = await this.contactService.searchContacts(this.searchValue);
   }
 }
